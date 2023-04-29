@@ -1,13 +1,8 @@
-import React, { useContext } from 'react';
 import './App.css';
-import { AppContext } from '../providers/app-context.provider';
+import { MainRouter } from '../navigation';
 
 function App() {
-  const { setIsDark } = useContext(AppContext);
-
-  const handlClick = () => setIsDark && setIsDark((state) => !state);
-
-  return <button onClick={handlClick}>Change Background</button>;
+  return <MainRouter />;
 }
 
 export default App;

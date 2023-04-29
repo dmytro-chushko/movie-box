@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useMemo, useState } from 'react';
 import { TypeSetState } from '../types/set-state.types';
 
 interface IAppProvider {
@@ -17,10 +17,7 @@ export const AppContext = createContext<IAppContext>({
 
 export const AppContextProvider = ({ children }: IAppProvider) => {
   const [isDark, setIsDark] = useState<boolean>(true);
+  const value = useMemo(() => ({ isDark, setIsDark }), [isDark]);
 
-  return (
-    <AppContext.Provider value={{ isDark, setIsDark }}>
-      {children}
-    </AppContext.Provider>
-  );
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };

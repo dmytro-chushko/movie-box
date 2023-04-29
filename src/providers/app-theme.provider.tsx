@@ -1,7 +1,7 @@
 import { ThemeProvider } from 'styled-components';
 import { useContext } from 'react';
 import { AppContext } from './app-context.provider';
-import { Theme } from '../styles/theme.style';
+import { theme } from '../styles/theme.styled';
 
 interface IAppThemeProvider {
   children: React.ReactNode;
@@ -10,5 +10,5 @@ interface IAppThemeProvider {
 export const AppThemeProvider = ({ children }: IAppThemeProvider) => {
   const { isDark } = useContext(AppContext);
 
-  return <ThemeProvider theme={Theme(isDark)}>{children}</ThemeProvider>;
+  return <ThemeProvider theme={theme(isDark)}>{children}</ThemeProvider>;
 };
