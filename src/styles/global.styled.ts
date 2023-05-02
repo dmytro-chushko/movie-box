@@ -4,8 +4,6 @@ import { normalize } from "styled-normalize";
 export const GlobalStyle = createGlobalStyle`
   ${normalize}; 
   ${css`
-		@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
-
 		* {
 			margin: 0;
 			padding: 0;
@@ -18,6 +16,8 @@ export const GlobalStyle = createGlobalStyle`
 			font-size: ${({ theme }) => theme.fontSize.base};
 			color: ${({ theme }) => theme.colors.primaryChangingColor};
 			background-color: ${({ theme }) => theme.colors.primaryChangingBgc};
+
+			transition: all ease-in-out 0.4s;
 		}
 
 		img {

@@ -30,6 +30,8 @@ export interface ITheme {
 		inputPadding: string;
 		borderRadius: string;
 		searchButtonWidth: string;
+		themeSwitcherHeight: string;
+		themeSwithcerWidth: string;
 	};
 	border: {
 		primaryBorder: string;
@@ -43,7 +45,7 @@ export const theme = (isDark?: boolean): ITheme => ({
 		primaryColor: "#FFFFFF",
 	},
 	fontSize: {
-		logo: "1.67vw",
+		logo: "24px",
 		base: "14px",
 		regular: "1em",
 		medium: "1.142em",
@@ -58,16 +60,18 @@ export const theme = (isDark?: boolean): ITheme => ({
 		hero: "1.71em",
 	},
 	size: {
-		logoSize: "3.47vw",
-		logoGap: "1.67vw",
-		logoWidth: "12.92vw",
+		logoSize: "50px",
+		logoGap: "24px",
+		logoWidth: "186px",
 		mainPaddingLeft: "6.6vw",
 		mainPaddingRight: "6.6vw",
-		headerPaddingTop: "1.04vw",
-		headerPaddingBottom: "1.04vw",
+		headerPaddingTop: "15px",
+		headerPaddingBottom: "15px",
 		inputPadding: "0.375em 2.5em 0.375em 0.72em",
 		borderRadius: "6px",
 		searchButtonWidth: "2.5em",
+		themeSwitcherHeight: "30px",
+		themeSwithcerWidth: "60px",
 	},
 	border: {
 		primaryBorder: "2px solid #D1D5DB",
