@@ -14,10 +14,11 @@ export const GlobalStyle = createGlobalStyle`
 			font-family: DM Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
 				"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 			font-size: ${({ theme }) => theme.fontSize.base};
+
 			color: ${({ theme }) => theme.colors.primaryChangingColor};
 			background-color: ${({ theme }) => theme.colors.primaryChangingBgc};
 
-			transition: all ease-in-out 0.4s;
+			transition: ${({ theme }) => theme.animation.primaryTransition};
 		}
 
 		img {

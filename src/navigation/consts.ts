@@ -1,3 +1,3 @@
 export const ROUTE = {
-  HOME: 'home',
+	HOME: "home",
 };

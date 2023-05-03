@@ -1,1 +1,2 @@
-export { Search } from './search.component';
+export { SearchField } from "./search-field/search-field.component";
+export { SearchButton } from "./search-btn";

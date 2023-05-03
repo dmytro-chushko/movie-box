@@ -1,8 +1,8 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 
-import * as Styled from "./search.styled";
+import * as Styled from "./search-field.styled";
 
-export const Search = () => {
+export const SearchField = () => {
 	const [keyword, setKeyword] = useState<string>("");
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => setKeyword(e.target.value);

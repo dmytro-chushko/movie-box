@@ -36,6 +36,10 @@ export interface ITheme {
 	border: {
 		primaryBorder: string;
 	};
+	animation: {
+		primaryTransition: string;
+		primaryAnimation: string;
+	};
 }
 
 export const theme = (isDark?: boolean): ITheme => ({
@@ -75,5 +79,9 @@ export const theme = (isDark?: boolean): ITheme => ({
 	},
 	border: {
 		primaryBorder: "2px solid #D1D5DB",
+	},
+	animation: {
+		primaryTransition: "all ease-in-out 0.4s",
+		primaryAnimation: "1s linear infinite",
 	},
 });
