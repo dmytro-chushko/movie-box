@@ -1,3 +1,10 @@
+import { TypeSetState } from "types/set-state.types";
 import * as Styled from "./search-btn.styled";
 
-export const SearchButton = () => <Styled.SearchButton type="button" />;
+interface ISearchButton {
+	setIsOpen: TypeSetState<boolean>;
+}
+
+export const SearchButton = ({ setIsOpen }: ISearchButton) => (
+	<Styled.SearchButton type="button" onClick={() => setIsOpen(true)} />
+);

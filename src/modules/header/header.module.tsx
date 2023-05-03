@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useMediaQuery } from "@mui/material";
 import { AppContext } from "../../providers";
 import { Logo } from "./components/logo";
-import { SearchField, SearchButton } from "./components/search";
+import { Search } from "./components/search";
 import { ThemeSwitcher } from "./components/theme-switcher";
 import { MEDIA_KEYS, alignItems, justifyContent } from "../../styles/consts";
 
@@ -24,16 +24,7 @@ export const Header = () => {
 				<GlobalStyles.AbsoluteWrapper left="0">
 					<Logo />
 				</GlobalStyles.AbsoluteWrapper>
-				{isShowSearch ? (
-					<Styled.SearchWrapper width="36.45vw">
-						<SearchField />
-					</Styled.SearchWrapper>
-				) : (
-					<GlobalStyles.ComponentWrapper ml="auto" mr="65px" mt="4.575px" mb="4.575px">
-						<SearchButton />
-					</GlobalStyles.ComponentWrapper>
-				)}
-
+				<Search mediaTrigger={isShowSearch} />
 				<GlobalStyles.AbsoluteWrapper onClick={handleClick} right="0">
 					<ThemeSwitcher isChecked={isDark} />
 				</GlobalStyles.AbsoluteWrapper>

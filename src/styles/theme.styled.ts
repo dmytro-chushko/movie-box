@@ -3,6 +3,8 @@ export interface ITheme {
 		primaryChangingBgc: string;
 		primaryChangingColor: string;
 		primaryColor: string;
+		primariBgc: string;
+		modalBgc: string;
 	};
 	fontSize: {
 		logo: string;
@@ -47,6 +49,8 @@ export const theme = (isDark?: boolean): ITheme => ({
 		primaryChangingBgc: isDark ? "#000000" : "#FFFFFF",
 		primaryChangingColor: isDark ? "#FFFFFF" : "#000000",
 		primaryColor: "#FFFFFF",
+		primariBgc: "#000000",
+		modalBgc: "rgba(0,0,0,0.3)",
 	},
 	fontSize: {
 		logo: "24px",
