@@ -15,7 +15,9 @@ const modalRootElement = document.querySelector("#modal");
 export const ModalWindow = ({ children, isOpen, setIsOpen }: IModalWindow) => {
 	const element = useMemo(() => document.createElement("div"), []);
 
-	const handleClick = () => setIsOpen(false);
+	const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+		if ((e.target as HTMLDivElement).dataset.backdrop) setIsOpen(false);
+	};
 
 	useEffect(() => {
 		modalRootElement?.appendChild(element);
@@ -23,10 +25,10 @@ export const ModalWindow = ({ children, isOpen, setIsOpen }: IModalWindow) => {
 		return () => {
 			modalRootElement?.removeChild(element);
 		};
-	});
+	}, [element]);
 
 	return createPortal(
-		<Styled.Backdrop isOpen={isOpen} onClick={handleClick}>
+		<Styled.Backdrop isOpen={isOpen} onClick={handleClick} data-backdrop={true}>
 			{children}
 		</Styled.Backdrop>,
 		element,
