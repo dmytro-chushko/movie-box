@@ -1,8 +1,7 @@
-import './App.css';
-import { MainRouter } from '../navigation';
+import { MainRouter } from "../navigation";
 
 function App() {
-  return <MainRouter />;
+	return <MainRouter />;
 }
 
 export default App;
