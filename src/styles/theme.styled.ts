@@ -69,7 +69,7 @@ export const theme = (isDark?: boolean): ITheme => ({
 	},
 	size: {
 		logoSize: "50px",
-		logoGap: "24px",
+		logoGap: "12px",
 		logoWidth: "186px",
 		mainPaddingLeft: "6.6vw",
 		mainPaddingRight: "6.6vw",
