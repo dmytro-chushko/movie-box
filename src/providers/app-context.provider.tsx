@@ -1,6 +1,7 @@
 import { createContext, useContext, useMemo, useState } from "react";
 import { TypeSetState } from "../types/set-state.types";
 import { useGetPopularMovieList } from "api/query-hooks";
+import { Loader } from "components/loader";
 
 interface IAppProvider {
 	children: React.ReactNode;
@@ -20,9 +21,14 @@ export function useAppContext() {
 export const AppContextProvider = ({ children }: IAppProvider) => {
 	const [isDark, setIsDark] = useState<boolean>(true);
 
-	const { isLoading: isLoadingPopularMovieList } = useGetPopularMovieList(1);
+	const { isLoading: isLoadingPopularMovieList } = useGetPopularMovieList();
 
 	const value = useMemo(() => ({ isDark, setIsDark }), [isDark]);
 
-	return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+	return (
+		<AppContext.Provider value={value}>
+			<Loader show={isLoadingPopularMovieList} />
+			{children}
+		</AppContext.Provider>
+	);
 };
