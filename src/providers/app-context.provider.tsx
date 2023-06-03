@@ -1,23 +1,28 @@
-import { createContext, useMemo, useState } from 'react';
-import { TypeSetState } from '../types/set-state.types';
+import { createContext, useContext, useMemo, useState } from "react";
+import { TypeSetState } from "../types/set-state.types";
+import { useGetPopularMovieList } from "api/query-hooks";
 
 interface IAppProvider {
-  children: React.ReactNode;
+	children: React.ReactNode;
 }
 
 interface IAppContext {
-  isDark: boolean;
-  setIsDark: TypeSetState<boolean> | null;
+	isDark: boolean;
+	setIsDark: TypeSetState<boolean>;
 }
 
-export const AppContext = createContext<IAppContext>({
-  isDark: true,
-  setIsDark: null,
-});
+export const AppContext = createContext<IAppContext>({} as IAppContext);
+
+export function useAppContext() {
+	return useContext(AppContext);
+}
 
 export const AppContextProvider = ({ children }: IAppProvider) => {
-  const [isDark, setIsDark] = useState<boolean>(true);
-  const value = useMemo(() => ({ isDark, setIsDark }), [isDark]);
+	const [isDark, setIsDark] = useState<boolean>(true);
 
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+	const { isLoading: isLoadingPopularMovieList } = useGetPopularMovieList(1);
+
+	const value = useMemo(() => ({ isDark, setIsDark }), [isDark]);
+
+	return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 };
