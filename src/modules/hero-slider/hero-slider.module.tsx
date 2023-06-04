@@ -3,11 +3,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper";
 
 import { IMovieItem } from "types/response-types";
+import { Slide } from "./components/slide";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Slide } from "./components/slide";
+import * as Styled from "./hero-slider.styled";
 
 interface IHeroSliderProps {
 	slides: IMovieItem[];
@@ -15,7 +16,7 @@ interface IHeroSliderProps {
 
 export const HeroSlider: FC<IHeroSliderProps> = ({ slides }) => {
 	return (
-		<div>
+		<Styled.SliderContainer>
 			<Swiper
 				centeredSlides={true}
 				autoplay={{
@@ -35,6 +36,6 @@ export const HeroSlider: FC<IHeroSliderProps> = ({ slides }) => {
 						</SwiperSlide>
 					))}
 			</Swiper>
-		</div>
+		</Styled.SliderContainer>
 	);
 };
