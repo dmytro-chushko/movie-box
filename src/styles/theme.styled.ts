@@ -5,6 +5,9 @@ export interface ITheme {
 		primaryColor: string;
 		primariBgc: string;
 		modalBgc: string;
+		sliderGradientTop: string;
+		sliderGradientBottom: string;
+		headerBg: string;
 	};
 	fontSize: {
 		logo: string;
@@ -12,6 +15,7 @@ export interface ITheme {
 		regular: string;
 		medium: string;
 		large: string;
+		movieTitle: string;
 	};
 	fontWeight: {
 		regular: string;
@@ -24,6 +28,7 @@ export interface ITheme {
 	size: {
 		logoSize: string;
 		logoGap: string;
+		slideGap: string;
 		logoWidth: string;
 		mainPaddingLeft: string;
 		mainPaddingRight: string;
@@ -51,6 +56,9 @@ export const theme = (isDark?: boolean): ITheme => ({
 		primaryColor: "#FFFFFF",
 		primariBgc: "#000000",
 		modalBgc: "rgba(0,0,0,0.3)",
+		sliderGradientTop: isDark ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.25)",
+		sliderGradientBottom: isDark ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)",
+		headerBg: isDark ? "transparent" : "rgba(0, 0, 0, 0.5)",
 	},
 	fontSize: {
 		logo: "24px",
@@ -58,6 +66,7 @@ export const theme = (isDark?: boolean): ITheme => ({
 		regular: "1em",
 		medium: "1.142em",
 		large: "1.285em",
+		movieTitle: "3em",
 	},
 	fontWeight: {
 		regular: "400",
@@ -70,6 +79,7 @@ export const theme = (isDark?: boolean): ITheme => ({
 	size: {
 		logoSize: "50px",
 		logoGap: "12px",
+		slideGap: "2em",
 		logoWidth: "186px",
 		mainPaddingLeft: "6.6vw",
 		mainPaddingRight: "6.6vw",

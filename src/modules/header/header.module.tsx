@@ -19,7 +19,7 @@ export const Header = () => {
 	};
 
 	return (
-		<Styled.HeadrSection>
+		<Styled.HeaderSection>
 			<GlobalStyles.MainContainer>
 				<Styled.HeaderContainer ai={alignItems.center} jc={justifyContent.center}>
 					<GlobalStyles.AbsoluteWrapper left="0">
@@ -31,6 +31,6 @@ export const Header = () => {
 					</GlobalStyles.AbsoluteWrapper>
 				</Styled.HeaderContainer>
 			</GlobalStyles.MainContainer>
-		</Styled.HeadrSection>
+		</Styled.HeaderSection>
 	);
 };

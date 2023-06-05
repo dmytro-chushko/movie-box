@@ -12,8 +12,9 @@ export interface IResponseWithList<T> {
 export interface IMovieItem {
 	id: number;
 	backdrop_path: string;
+	poster_path: string;
 	original_title: string;
 	overview: string;
-	relise_date: string;
+	release_date: string;
 	vote_average: number;
 }

@@ -46,5 +46,11 @@ export const GlobalStyle = createGlobalStyle`
 		input {
 			outline: none;
 		}
+
+		img {
+			display: block;
+			height: auto;
+			max-width: 100%;
+		}
 	`}
 `;

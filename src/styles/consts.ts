@@ -24,3 +24,7 @@ export enum MEDIA_KEYS {
 	MIN_DESKTOP = "min-width: 1280px",
 	MAX_DESKTOP = "max-width: 1920px",
 }
+
+export enum IMG_WIDTH {
+	SLIDE_POSTER = "300",
+}

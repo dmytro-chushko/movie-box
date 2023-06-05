@@ -10,6 +10,7 @@ interface IFlexBox {
 	ai?: alignItems;
 	jc?: justifyContent;
 	gap?: string;
+	mb?: string;
 }
 
 export const FlexBox = styled.div<IFlexBox>`
@@ -21,6 +22,12 @@ export const FlexBox = styled.div<IFlexBox>`
 		css`
 			gap: ${gap};
 		`};
+
+	${({ mb }) =>
+		mb &&
+		css`
+			margin-bottom: ${mb};
+		`}
 `;
 
 interface IComponentWrapper {
