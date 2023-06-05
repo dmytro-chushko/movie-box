@@ -8,5 +8,9 @@ interface ISlideProps {
 }
 
 export const Slide: FC<ISlideProps> = ({ slide }) => {
-	return <Styled.SlideContainer bgImg={slide.backdrop_path}>Slide</Styled.SlideContainer>;
+	return (
+		<Styled.SlideContainer bgImg={slide.backdrop_path}>
+			<Styled.MovieInfo>Slide</Styled.MovieInfo>
+		</Styled.SlideContainer>
+	);
 };

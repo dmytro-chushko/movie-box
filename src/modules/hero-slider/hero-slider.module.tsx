@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper";
+import { Autoplay } from "swiper";
 
 import { IMovieItem } from "types/response-types";
 import { Slide } from "./components/slide";
@@ -23,11 +23,7 @@ export const HeroSlider: FC<IHeroSliderProps> = ({ slides }) => {
 					delay: 3000,
 					disableOnInteraction: false,
 				}}
-				pagination={{
-					clickable: true,
-				}}
-				navigation={true}
-				modules={[Autoplay, Pagination, Navigation]}
+				modules={[Autoplay]}
 			>
 				{slides &&
 					slides.map(slide => (
