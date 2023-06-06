@@ -17,8 +17,6 @@ export const GlobalStyle = createGlobalStyle`
 
 			color: ${({ theme }) => theme.colors.primaryChangingColor};
 			background-color: ${({ theme }) => theme.colors.primaryChangingBgc};
-
-			transition: ${({ theme }) => theme.animation.primaryTransition};
 		}
 
 		img {
@@ -30,12 +28,17 @@ export const GlobalStyle = createGlobalStyle`
 		a {
 			text-decoration: none;
 			color: ${({ theme }) => theme.colors.primaryChangingColor};
+
+			transition: ${({ theme }) => theme.animation.primaryTransition};
 		}
 
 		button {
+			color: ${({ theme }) => theme.colors.primaryChangingColor};
 			cursor: pointer;
 			background: transparent;
 			border: none;
+
+			transition: ${({ theme }) => theme.animation.primaryTransition};
 		}
 
 		ul,

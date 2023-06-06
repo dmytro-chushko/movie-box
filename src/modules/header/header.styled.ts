@@ -8,6 +8,8 @@ export const HeaderSection = styled.header`
 	width: 100%;
 
 	background-color: ${({ theme }) => theme.colors.headerBg};
+
+	transition: ${({ theme }) => theme.animation.primaryTransition};
 `;
 
 export const HeaderContainer = styled(FlexBox)`

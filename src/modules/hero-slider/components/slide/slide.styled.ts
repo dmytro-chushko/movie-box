@@ -2,24 +2,7 @@ import styled from "styled-components";
 
 import { FlexBox } from "styles";
 import { MEDIA_KEYS } from "styles/consts";
-import { imgRoutes } from "utils/img-routes";
 import imdbImg from "assets/images/imdb.png";
-
-interface ISliderContainer {
-	bgImg: string;
-}
-
-export const SlideContainer = styled.div<ISliderContainer>`
-	height: 100%;
-
-	background-image: linear-gradient(
-			${({ theme }) =>
-				`180deg, ${theme.colors.sliderGradientTop}, ${theme.colors.sliderGradientBottom}`}
-		),
-		url(${({ bgImg }) => imgRoutes.originalImg(bgImg)});
-	background-size: cover;
-	background-position: center;
-`;
 
 export const MovieInfo = styled(FlexBox)`
 	height: 100%;
@@ -49,6 +32,9 @@ export const MovieVoteAverage = styled.span`
 
 	padding-left: 2.5rem;
 
+	font-size: ${({ theme }) => theme.fontSize.large};
+	font-weight: ${({ theme }) => theme.fontWeight.medium};
+
 	::before {
 		content: "";
 		position: absolute;
@@ -63,7 +49,28 @@ export const MovieVoteAverage = styled.span`
 	}
 `;
 
-export const MovieReleasedDate = styled.span``;
+export const MovieReleasedDate = styled.span`
+	font-size: ${({ theme }) => theme.fontSize.large};
+	font-weight: ${({ theme }) => theme.fontWeight.bold};
+`;
+
+export const MovieButton = styled.button`
+	width: 40%;
+	padding: 0.5em 1em;
+
+	font-weight: ${({ theme }) => theme.fontWeight.medium};
+	text-transform: uppercase;
+
+	border: ${({ theme }) => theme.border.slideButtonBorder};
+	border-radius: ${({ theme }) => theme.size.borderRadius};
+
+	transition: ${({ theme }) => theme.animation.primaryTransition};
+
+	:hover {
+		color: ${({ theme }) => theme.colors.primaryChangingBgc};
+		background-color: ${({ theme }) => theme.colors.primaryChangingColor};
+	}
+`;
 
 export const MoviePoster = styled.div`
 	width: 300px;

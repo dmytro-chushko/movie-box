@@ -5,8 +5,9 @@ import { useTheme } from "styled-components";
 import { imgRoutes } from "utils/img-routes";
 import { IMG_WIDTH, alignItems, justifyContent } from "styles/consts";
 import { formatReleasedDate } from "utils/format-release-date";
+import { SlideContainer } from "../slide-container";
 
-import * as GlobalStyles from "styles";
+import { FlexBox } from "styles";
 import * as Styled from "./slide.styled";
 
 interface ISlideProps {
@@ -17,16 +18,21 @@ export const Slide: FC<ISlideProps> = ({ slide }) => {
 	const theme = useTheme();
 
 	return (
-		<Styled.SlideContainer bgImg={slide.backdrop_path}>
+		<SlideContainer bgImg={slide.backdrop_path}>
 			<Styled.MovieInfo ai={alignItems.center} jc={justifyContent.center} gap={theme.size.slideGap}>
 				<Styled.MovieDescription>
 					<Styled.MovieTitle>{slide.original_title}</Styled.MovieTitle>
-					<GlobalStyles.FlexBox ai={alignItems.center} gap="2rem" mb="1em">
+					<FlexBox ai={alignItems.center} gap="2rem" mb="1em">
 						<Styled.MovieVoteAverage>: {slide.vote_average} / 10</Styled.MovieVoteAverage>
-						<span>{formatReleasedDate(slide.release_date)}</span>
-					</GlobalStyles.FlexBox>
-
+						<Styled.MovieReleasedDate>
+							{formatReleasedDate(slide.release_date)}
+						</Styled.MovieReleasedDate>
+					</FlexBox>
 					<Styled.MovieParagraph>{slide.overview}</Styled.MovieParagraph>
+					<FlexBox ai={alignItems.center} gap="2rem">
+						<Styled.MovieButton>watch trailer</Styled.MovieButton>
+						<Styled.MovieButton>details</Styled.MovieButton>
+					</FlexBox>
 				</Styled.MovieDescription>
 				<Styled.MoviePoster>
 					<img
@@ -35,6 +41,6 @@ export const Slide: FC<ISlideProps> = ({ slide }) => {
 					/>
 				</Styled.MoviePoster>
 			</Styled.MovieInfo>
-		</Styled.SlideContainer>
+		</SlideContainer>
 	);
 };

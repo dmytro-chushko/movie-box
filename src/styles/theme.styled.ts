@@ -5,8 +5,10 @@ export interface ITheme {
 		primaryColor: string;
 		primariBgc: string;
 		modalBgc: string;
-		sliderGradientTop: string;
-		sliderGradientBottom: string;
+		darkSliderGradientTop: string;
+		darkSliderGradientBottom: string;
+		lightSliderGradientTop: string;
+		lightSliderGradientBottom: string;
 		headerBg: string;
 	};
 	fontSize: {
@@ -42,6 +44,7 @@ export interface ITheme {
 	};
 	border: {
 		primaryBorder: string;
+		slideButtonBorder: string;
 	};
 	animation: {
 		primaryTransition: string;
@@ -56,8 +59,10 @@ export const theme = (isDark?: boolean): ITheme => ({
 		primaryColor: "#FFFFFF",
 		primariBgc: "#000000",
 		modalBgc: "rgba(0,0,0,0.3)",
-		sliderGradientTop: isDark ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.25)",
-		sliderGradientBottom: isDark ? "rgb(0, 0, 0)" : "rgb(255, 255, 255)",
+		darkSliderGradientTop: "rgba(0, 0, 0, 0.25)",
+		darkSliderGradientBottom: "rgb(0, 0, 0)",
+		lightSliderGradientTop: "rgba(255, 255, 255, 0.25)",
+		lightSliderGradientBottom: "rgb(255, 255, 255)",
 		headerBg: isDark ? "transparent" : "rgba(0, 0, 0, 0.5)",
 	},
 	fontSize: {
@@ -93,6 +98,7 @@ export const theme = (isDark?: boolean): ITheme => ({
 	},
 	border: {
 		primaryBorder: "2px solid #D1D5DB",
+		slideButtonBorder: `2px solid ${isDark ? "#FFFFFF" : "#000000"}`,
 	},
 	animation: {
 		primaryTransition: "all ease-in-out 0.4s",
