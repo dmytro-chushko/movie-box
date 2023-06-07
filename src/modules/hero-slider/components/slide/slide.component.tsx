@@ -1,11 +1,13 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { IMovieItem } from "types/response-types";
 import { useTheme } from "styled-components";
+import { useSwiper } from "swiper/react";
 
 import { imgRoutes } from "utils/img-routes";
 import { IMG_WIDTH, alignItems, justifyContent } from "styles/consts";
 import { formatReleasedDate } from "utils/format-release-date";
 import { SlideContainer } from "../slide-container";
+import { useAppContext } from "providers";
 
 import { FlexBox } from "styles";
 import * as Styled from "./slide.styled";
@@ -15,7 +17,21 @@ interface ISlideProps {
 }
 
 export const Slide: FC<ISlideProps> = ({ slide }) => {
+	const { isTrailerOpen, setIsTrailerOpen, setTrailerId } = useAppContext();
 	const theme = useTheme();
+	const { autoplay } = useSwiper();
+
+	const handleWatchTrailer = () => {
+		setIsTrailerOpen(true);
+		setTrailerId(slide.id);
+		autoplay.pause();
+	};
+
+	useEffect(() => {
+		if (!isTrailerOpen) {
+			autoplay.start();
+		}
+	}, [isTrailerOpen, autoplay]);
 
 	return (
 		<SlideContainer bgImg={slide.backdrop_path}>
@@ -30,7 +46,7 @@ export const Slide: FC<ISlideProps> = ({ slide }) => {
 					</FlexBox>
 					<Styled.MovieParagraph>{slide.overview}</Styled.MovieParagraph>
 					<FlexBox ai={alignItems.center} gap="2rem">
-						<Styled.MovieButton>watch trailer</Styled.MovieButton>
+						<Styled.MovieButton onClick={handleWatchTrailer}>watch trailer</Styled.MovieButton>
 						<Styled.MovieButton>details</Styled.MovieButton>
 					</FlexBox>
 				</Styled.MovieDescription>

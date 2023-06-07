@@ -10,6 +10,10 @@ interface IAppProvider {
 interface IAppContext {
 	isDark: boolean;
 	setIsDark: TypeSetState<boolean>;
+	isTrailerOpen: boolean;
+	setIsTrailerOpen: TypeSetState<boolean>;
+	trailerId: number;
+	setTrailerId: TypeSetState<number>;
 }
 
 export const AppContext = createContext<IAppContext>({} as IAppContext);
@@ -20,10 +24,15 @@ export function useAppContext() {
 
 export const AppContextProvider = ({ children }: IAppProvider) => {
 	const [isDark, setIsDark] = useState<boolean>(true);
+	const [isTrailerOpen, setIsTrailerOpen] = useState<boolean>(false);
+	const [trailerId, setTrailerId] = useState<number>(0);
 
 	const { isLoading: isLoadingPopularMovieList } = useGetPopularMovieList();
 
-	const value = useMemo(() => ({ isDark, setIsDark }), [isDark]);
+	const value = useMemo(
+		() => ({ isDark, setIsDark, isTrailerOpen, setIsTrailerOpen, trailerId, setTrailerId }),
+		[isDark, isTrailerOpen, trailerId],
+	);
 
 	return (
 		<AppContext.Provider value={value}>

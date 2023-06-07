@@ -14,7 +14,12 @@ export const SearchField = () => {
 
 	return (
 		<Styled.SearhForm onSubmit={handleSubmit}>
-			<Styled.SearchInput type="text" value={keyword} onChange={handleChange} />
+			<Styled.SearchInput
+				type="text"
+				value={keyword}
+				onChange={handleChange}
+				placeholder="What do you want to watch?"
+			/>
 			<Styled.SearchButton type="submit" />
 		</Styled.SearhForm>
 	);

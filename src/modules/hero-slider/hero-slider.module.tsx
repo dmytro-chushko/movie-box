@@ -4,6 +4,8 @@ import { Autoplay } from "swiper";
 
 import { IMovieItem } from "types/response-types";
 import { Slide } from "./components/slide";
+import { ModalTrailer } from "./components/modal-trailer";
+import { useAppContext } from "providers";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -15,6 +17,8 @@ interface IHeroSliderProps {
 }
 
 export const HeroSlider: FC<IHeroSliderProps> = ({ slides }) => {
+	const { isTrailerOpen, setIsTrailerOpen } = useAppContext();
+
 	return (
 		<Styled.SliderContainer>
 			<Swiper
@@ -32,6 +36,7 @@ export const HeroSlider: FC<IHeroSliderProps> = ({ slides }) => {
 						</SwiperSlide>
 					))}
 			</Swiper>
+			<ModalTrailer isOpen={isTrailerOpen} setIsOpen={setIsTrailerOpen} />
 		</Styled.SliderContainer>
 	);
 };

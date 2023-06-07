@@ -30,10 +30,16 @@ export const SearhForm = styled.form`
 export const SearchInput = styled.input`
 	width: 100%;
 	padding: ${({ theme }) => theme.size.inputPadding};
+
 	font-size: ${({ theme }) => theme.fontSize.medium};
 	line-height: 1.5;
+
 	color: ${({ theme }) => theme.colors.primaryColor};
 	border: ${({ theme }) => theme.border.primaryBorder};
 	border-radius: ${({ theme }) => theme.size.borderRadius};
 	background-color: transparent;
+
+	::placeholder {
+		color: ${({ theme }) => theme.colors.primaryColor};
+	}
 `;
