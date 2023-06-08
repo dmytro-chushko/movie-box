@@ -18,3 +18,18 @@ export interface IMovieItem {
 	release_date: string;
 	vote_average: number;
 }
+
+export interface ITrailer {
+	key: string;
+	name: string;
+	type: string;
+}
+
+export interface ITrailerList {
+	id: number;
+	results: ITrailer[];
+}
+
+export enum TRAILER_TYPE {
+	TRAILER = "Trailer",
+}

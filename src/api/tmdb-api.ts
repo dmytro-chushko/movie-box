@@ -8,4 +8,10 @@ export const tmdbAPi = {
 
 		return axiosClient.get<IResponseWithList<T>>(url, params);
 	},
+
+	getContentItemById: <T>(type: CONTENT_TYPE, id: number, options?: CONTENT_OPTIONS) => {
+		const url = `${type}${id}/${options && options}`;
+
+		return axiosClient.get<T>(url);
+	},
 };

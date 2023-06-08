@@ -14,6 +14,8 @@ interface ISearch {
 export const Search = ({ mediaTrigger }: ISearch) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
+	const handleClose = () => setIsOpen(false);
+
 	return mediaTrigger ? (
 		<GlobalStyles.ComponentWrapper width="36.45vw">
 			<SearchField />
@@ -21,7 +23,7 @@ export const Search = ({ mediaTrigger }: ISearch) => {
 	) : (
 		<GlobalStyles.ComponentWrapper ml="auto" mr="65px" mt="4.575px" mb="4.575px">
 			<SearchButton setIsOpen={setIsOpen} />
-			<ModalWindow isOpen={isOpen} setIsOpen={setIsOpen}>
+			<ModalWindow isOpen={isOpen} onClose={handleClose}>
 				<ModalSearch isOpen={isOpen} setIsOpen={setIsOpen} />
 			</ModalWindow>
 		</GlobalStyles.ComponentWrapper>

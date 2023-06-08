@@ -1,12 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
+import { QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+
 import App from "./app/App";
 import reportWebVitals from "./reportWebVitals";
 import { GlobalStyle } from "./styles/global.styled";
 import { AppContextProvider, AppThemeProvider } from "./providers";
-import { QueryClientProvider } from "react-query";
 import { queryClient } from "api/query-client";
+
+import "./index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 root.render(
@@ -16,6 +19,7 @@ root.render(
 			<AppThemeProvider>
 				<GlobalStyle />
 				<App />
+				<ReactQueryDevtools initialIsOpen={false} />
 			</AppThemeProvider>
 		</AppContextProvider>
 	</QueryClientProvider>,

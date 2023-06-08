@@ -67,6 +67,7 @@ export const ComponentWrapper = styled.div<IComponentWrapper>`
 `;
 
 interface IAbsoluteWrapper {
+	center?: boolean;
 	top?: string;
 	bottom?: string;
 	left?: string;
@@ -76,6 +77,13 @@ interface IAbsoluteWrapper {
 
 export const AbsoluteWrapper = styled.div<IAbsoluteWrapper>`
 	position: absolute;
+	${({ center }) =>
+		center &&
+		css`
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		`}
 	${({ top }) =>
 		top &&
 		css`

@@ -16,6 +16,7 @@ export const Backdrop = styled.div<IBackdrop>`
 	pointer-events: ${({ isOpen }) => (isOpen ? "auto" : "none")};
 	opacity: ${({ isOpen }) => (isOpen ? 1 : 0)};
 	backdrop-filter: blur(5px);
+	overflow: hidden;
 
 	transition: ${({ theme }) => theme.animation.primaryTransition};
 `;

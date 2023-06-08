@@ -27,3 +27,20 @@ export const SearchScalingKeyFrame = css`
 		}
 	}
 `;
+
+export const TrailerAppearanceKeyFrame = css`
+	@keyframes trailerAppearance {
+		0% {
+			transform: translate(-50%, -50%);
+			opacity: 0;
+		}
+		1% {
+			transform: translate(50%, -50%);
+			opacity: 0;
+		}
+		100% {
+			transform: translate(-50%, -50%);
+			opacity: 1;
+		}
+	}
+`;
