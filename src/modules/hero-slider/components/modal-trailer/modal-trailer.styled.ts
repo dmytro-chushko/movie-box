@@ -10,7 +10,6 @@ export const TrailerContainer = styled.div`
 	height: 45vw;
 
 	transform: translate(-50%, -50%);
-	/* opacity: 0; */
 
 	animation: trailerAppearance ${({ theme }) => theme.animation.primaryAnimation};
 	animation-iteration-count: 1;

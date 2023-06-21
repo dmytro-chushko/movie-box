@@ -8,7 +8,7 @@ export const Home = () => {
 	return (
 		<>
 			{data && <HeroSlider slides={data.results} />}
-			<div></div>
+			<div>...Loading</div>
 		</>
 	);
 };
