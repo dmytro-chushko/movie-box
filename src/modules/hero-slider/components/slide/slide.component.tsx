@@ -11,6 +11,7 @@ import { useAppContext } from "providers";
 
 import { FlexBox } from "styles";
 import * as Styled from "./slide.styled";
+import { useNavigate } from "react-router-dom";
 
 interface ISlideProps {
 	slide: IMovieItem;
@@ -18,6 +19,7 @@ interface ISlideProps {
 
 export const Slide: FC<ISlideProps> = ({ slide }) => {
 	const { isTrailerOpen, setIsTrailerOpen, setTrailerId } = useAppContext();
+	const navigate = useNavigate();
 	const theme = useTheme();
 	const { autoplay } = useSwiper();
 
@@ -25,6 +27,10 @@ export const Slide: FC<ISlideProps> = ({ slide }) => {
 		setIsTrailerOpen(true);
 		setTrailerId(slide.id);
 		autoplay.pause();
+	};
+
+	const handleShowDetails = () => {
+		navigate(`/${slide.id}`);
 	};
 
 	useEffect(() => {
@@ -47,7 +53,7 @@ export const Slide: FC<ISlideProps> = ({ slide }) => {
 					<Styled.MovieParagraph>{slide.overview}</Styled.MovieParagraph>
 					<FlexBox ai={alignItems.center} gap="2rem">
 						<Styled.MovieButton onClick={handleWatchTrailer}>watch trailer</Styled.MovieButton>
-						<Styled.MovieButton>details</Styled.MovieButton>
+						<Styled.MovieButton onClick={handleShowDetails}>details</Styled.MovieButton>
 					</FlexBox>
 				</Styled.MovieDescription>
 				<Styled.MoviePoster>
